@@ -2,4 +2,4 @@
   yum:  name=bahmni-endtb-batch state=absent
 
 - name: Install bahmni-endtb-batch
-  yum:  name=http://bamboo.pih-emr.org/bahmni-repo/bahmni-endtb-batch-2.1.0-1.noarch.rpm state=present
+  yum:  name=http://bamboo.pih-emr.org/bahmni-repo/bahmni-endtb-batch-2.2.0-1.noarch.rpm state=present
