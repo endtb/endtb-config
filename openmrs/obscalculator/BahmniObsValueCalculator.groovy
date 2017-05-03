@@ -192,7 +192,6 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
                     voidObs(fullyObservedDaysObs);
                     voidObs(completenessRateObs);
                     voidObs(adherenceRateObs);
-                    voidParentObservationWithOnlyVoidedMembers(bahmniObs);
                     fullyObservedDaysObs = null;
                     completenessRateObs = null;
                     adherenceRateObs = null;
@@ -326,7 +325,9 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
     private static def voidParentObservationWithOnlyVoidedMembers(BahmniObservation parent) {
         parent.voided = true;
         for (BahmniObservation member : parent.getGroupMembers()) {
-            voidParentObservationWithOnlyVoidedMembers(member)
+            if (member.getGroupMembers().size() != 0) {
+                voidParentObservationWithOnlyVoidedMembers(member)
+            }
             if (!member.getVoided()) {
                 parent.voided = false;
                 break;
