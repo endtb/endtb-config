@@ -1,5 +1,5 @@
 - name: Remove bahmni-endtb-batch before installing
   yum:  name=bahmni-endtb-batch state=absent
 
-- name: Install bahmni-endtb-batch
+- name: Install bahmni-endtb-batch  (TODO: figure out where this should be installed long-term)
   yum:  name=http://bamboo.pih-emr.org/bahmni-repo/bahmni-endtb-batch-2.0.0-1.noarch.rpm state=present
