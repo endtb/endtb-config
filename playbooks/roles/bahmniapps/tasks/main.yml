@@ -1,0 +1,18 @@
+# Deploy custom build of bahmniapps
+# turn this one or off by adding this role the "all.yml" file
+
+- name: Download bahmniapps from remote location as zip file
+  get_url: url=http://bamboo.pih-emr.org/bahmni-repo/endtb-bahmniapps-0.88-latest.zip dest=/tmp/bahmniapps.zip
+
+- name: Clear out existing bahmniapps content
+  command: "rm -fR /opt/bahmni-web/etc/bahmniapps/*"
+
+- name: Extract contents of zip file into bahmniapps directory
+  unarchive: src=/tmp/bahmniapps.zip dest=/opt/bahmni-web/etc/bahmniapps/ copy=no
+
+- name: Set permissions on bahmniapps dir
+  file: path=/opt/bahmni-web/etc/bahmniapps owner=bahmni group=bahmni mode=0755 recurse=yes
+
+- name: Remove downloaded zip file
+  file: path=/tmp/bahmniapps.zip state=absent
+
