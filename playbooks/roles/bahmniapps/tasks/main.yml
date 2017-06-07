@@ -2,7 +2,7 @@
 # turn this one or off by adding this role the "all.yml" file
 
 - name: Download bahmniapps from remote location as zip file
-  get_url: url=http://bamboo.pih-emr.org/bahmni-repo/endtb-bahmniapps-0.88-latest.zip dest=/tmp/bahmniapps.zip
+  get_url: url=https://github.com/endtb/openmrs-module-bahmniapps/archive/endtb-2.1.0.zip dest=/tmp/bahmniapps.zip
 
 - name: Clear out existing bahmniapps content
   command: "rm -fR /opt/bahmni-web/etc/bahmniapps/*"
