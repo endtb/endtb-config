@@ -210,6 +210,7 @@
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/baselineDataVerificationList.sql"
     }
   },
+
   "StudyViewReport": {
       "name": "Study View Report (Custom Excel)",
       "type": "MRSGeneric",
@@ -217,5 +218,15 @@
         "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/studyReports.sql",
         "macroTemplatePath": "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/StudyViewReport.xls"
       }
+  },
+
+  "CultureConversion": {
+    "name": "Culture Conversion(Custom Excel)",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/cultureConversion.sql",
+      "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/CultureConversion.xls"
+    }
   }
+
 }
