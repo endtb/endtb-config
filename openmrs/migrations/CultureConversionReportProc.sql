@@ -34,7 +34,7 @@ BEGIN
 			)
 		 else ifnull(o.value_coded, '')
 	end as 'SampleType',
-	odate.value_datetime as SputumCollectionDate,
+	date(odate.value_datetime) as SputumCollectionDate,
 	( select DATEDIFF(SputumCollectionDate, StartTreatmentDate) as SIGNED) as TreatmentDays,
 	( select getTreatMentMonth(CAST(DATEDIFF(SputumCollectionDate, StartTreatmentDate) as SIGNED))) as TreatmentMonth,
 	(select GROUP_CONCAT(case when (smearResult.value_coded is not null) then
@@ -124,6 +124,6 @@ BEGIN
 		and pn.retired = 0
 		 and o.concept_id = @specimenSampleSource
 		 and o.value_coded = @sputumSampleType
-	order by TreatmentDays, PatientId, odate.value_datetime;
+	order by pi.identifier, TreatmentDays, PatientId, odate.value_datetime;
 
 END;
