@@ -6,10 +6,13 @@ SELECT
 	obs.obs_month_year AS `MTC_form_month_year`,
 	MAX( IF( obs.concept_full_name = 'MTC, Overall DOT Rate', obs.value, NULL )) AS `DOT Rate`,
 	MAX( IF( obs.concept_full_name = 'MTC, Adherence rate', obs.value, NULL )) AS `Adherence Rate`,
-	MAX( IF( obs.concept_full_name = 'MTC, Completeness rate', obs.value, NULL )) AS `Completeness Rate`,
+	MAX( IF( obs.concept_full_name = 'MTC, Completeness rate', obs.value, NULL )) AS `Completeness Rate`,	
 	MAX( IF( other_obs.concept_full_name = 'Tuberculosis treatment end date', other_obs.value, NULL )) AS `END date`,
 	MAX( IF( other_obs.concept_full_name = 'EOT, Outcome', other_obs.value, NULL )) AS `Outcome`,
-	MAX( IF( obs.concept_full_name = 'MTC, Principal reason for treatment incomplete', obs.value, NULL )) AS `Reasons`
+	MAX( IF( obs.concept_full_name = 'MTC, Principal reason for treatment incomplete', obs.value, NULL )) AS `Principal Reasons`,
+	MAX( IF( obs.concept_full_name = 'MTC, Detailed program related reason', obs.value, NULL )) AS  `Program Reasons`,
+	MAX( IF( obs.concept_full_name = 'MTC, Detailed medical related reason', obs.value, NULL )) AS  `Medial Reasons`,
+    MAX( IF( obs.concept_full_name = 'MTC, Detailed patient related reason', obs.value, NULL )) AS  `Patient Reasons`
 FROM
 	person_name,
 	person p,
@@ -51,7 +54,10 @@ LEFT JOIN(
 				'MTC, Adherence rate',
 				'MTC, Overall DOT Rate',
 				'MTC, Principal reason for treatment incomplete',
-				'MTC, Month and year of treatment period'
+				'MTC, Month and year of treatment period',
+				'MTC, Detailed program related reason',
+				'MTC, Detailed medical related reason',
+				'MTC, Detailed patient related reason'
 			)
 	) obs ON
 	(
@@ -84,6 +90,17 @@ LEFT OUTER JOIN(
 				'Tuberculosis treatment end date'
 			)
 	) other_obs ON 	( other_obs.episode_id = ee.episode_id )
+	LEFT OUTER JOIN (
+		SELECT
+			ee.episode_id,
+			o.value_datetime
+		FROM
+			obs o
+		INNER JOIN concept_name cn ON cn.concept_id = o.concept_id
+		AND o.voided IS FALSE
+		AND cn.concept_name_type='FULLY_SPECIFIED' AND cn.name = 'Tuberculosis treatment end date'
+		INNER JOIN episode_encounter ee ON ee.encounter_id = o.encounter_id
+	) treatment_end_date ON ( treatment_end_date.episode_id = ee.episode_id )		
 WHERE
 	person_name.person_id = patient_program.patient_id
 	AND pi.patient_id = person_name.person_id
@@ -98,7 +115,8 @@ WHERE
 	AND tStartDate.encounter_id = e.encounter_id
 	AND tStartDate.concept_id = tStartDateConcept.concept_id
 	AND tStartDate.voided = 0
-	AND DATE_FORMAT( tStartDate.value_datetime, '%Y' )= DATE_FORMAT( '#startDate#', '%Y' )
+	AND DATE_FORMAT( tStartDate.value_datetime, '%Y' ) <= DATE_FORMAT( '#startDate#', '%Y' )
+	AND DATE_FORMAT( treatment_end_date.value_datetime, '%Y' ) >= DATE_FORMAT( '#startDate#', '%Y' )
 	AND tStartDateConcept.concept_full_name = 'TUBERCULOSIS DRUG TREATMENT START DATE'
 	AND patient_program.program_id = program.program_id
 	AND program.retired = 0
