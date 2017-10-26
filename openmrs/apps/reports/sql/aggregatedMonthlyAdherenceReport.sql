@@ -116,7 +116,7 @@ WHERE
 	AND tStartDate.concept_id = tStartDateConcept.concept_id
 	AND tStartDate.voided = 0
 	AND DATE_FORMAT( tStartDate.value_datetime, '%Y' ) <= DATE_FORMAT( '#startDate#', '%Y' )
-	AND DATE_FORMAT( treatment_end_date.value_datetime, '%Y' ) >= DATE_FORMAT( '#startDate#', '%Y' )
+	AND ( DATE_FORMAT( treatment_end_date.value_datetime, '%Y' ) >= DATE_FORMAT( '#startDate#', '%Y' ) OR treatment_end_date.value_datetime IS NULL )
 	AND tStartDateConcept.concept_full_name = 'TUBERCULOSIS DRUG TREATMENT START DATE'
 	AND patient_program.program_id = program.program_id
 	AND program.retired = 0

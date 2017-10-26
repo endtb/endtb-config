@@ -225,5 +225,13 @@
         "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/aggregatedMonthlyAdherenceReport.sql",
         "macroTemplatePath": "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/template_agregate_adherencce.xls"
       }
+  },
+  "AdheranceIndicatorsAggregatereport": {
+    "name": "Adherance Indicators Aggregate - Based on year of start date only (Custom Excel)",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/aggregatedMonthlyAdherenceReport.sql",
+      "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/template_agregate_adherencce.xls"
+    }
   }
 }
