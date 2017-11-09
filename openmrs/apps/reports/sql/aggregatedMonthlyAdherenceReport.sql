@@ -12,7 +12,8 @@ SELECT
 	MAX( IF( obs.concept_full_name = 'MTC, Principal reason for treatment incomplete', obs.value, NULL )) AS `Principal Reasons`,
 	MAX( IF( obs.concept_full_name = 'MTC, Detailed program related reason', obs.value, NULL )) AS  `Program Reasons`,
 	MAX( IF( obs.concept_full_name = 'MTC, Detailed medical related reason', obs.value, NULL )) AS  `Medial Reasons`,
-    MAX( IF( obs.concept_full_name = 'MTC, Detailed patient related reason', obs.value, NULL )) AS  `Patient Reasons`
+    MAX( IF( obs.concept_full_name = 'MTC, Detailed patient related reason', obs.value, NULL )) AS  `Patient Reasons`,
+	DATEDIFF(MAX( IF( other_obs.concept_full_name = 'TUBERCULOSIS DRUG TREATMENT START DATE', other_obs.value, NULL )),'1900-01-01') AS `Stamp`
 FROM
 	person_name,
 	person p,
