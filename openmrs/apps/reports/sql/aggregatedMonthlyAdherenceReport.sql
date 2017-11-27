@@ -127,4 +127,3 @@ WHERE
 GROUP BY
 	epp.episode_id,
 	obs.obs_month_year;
-
