@@ -2406,4 +2406,40 @@
                     AND o.voided IS FALSE
         </sql>
     </changeSet>
+	<changeSet id="ENDTB-2017121635" author="Sudhamsh" runAlways="true">
+        <comment>Culture Conversion procedure</comment>
+        <sql>
+            DROP PROCEDURE IF EXISTS culture_conversion ;
+        </sql>
+        <sqlFile splitStatements="false" path="cultureConversionProc.sql"/>
+    </changeSet>
+    <changeSet id="ENDTB-2017121630" author="Sudhamsh" runAlways="true">
+        <comment>Smaer conversion Procedure</comment>
+        <sql>
+            DROP PROCEDURE IF EXISTS smear_conversion;
+        </sql>
+        <sqlFile splitStatements="false" path="smearConversionProc.sql"/>
+    </changeSet>
+        <changeSet id="ENDTB-2017121640" author="Sudhamsh" runAlways="true">
+        <comment>Basic Register Procedure</comment>
+        <sql>
+            DROP PROCEDURE IF EXISTS Basic_register;
+        </sql>
+        <sqlFile splitStatements="false" path="basicRegisterTreatment.sql"/>
+    </changeSet>
+    <changeSet id="ENDTB-2017121645" author="Sudhamsh" runAlways="true">
+        <comment>Culture Conversion Report Procedure</comment>
+        <sql>
+            DROP PROCEDURE IF EXISTS cultureConversionReport;
+        </sql>
+        <sqlFile splitStatements="false" path="cultureConversionReport.sql"/>
+    </changeSet>
+    <changeSet id="ENDTB-2017121648" author="Sudhamsh" runAlways="true">
+        <comment>Get Treatment Month Function</comment>
+        <sql>
+            DROP Function IF EXISTS getTreatmentMonth;
+        </sql>
+        <sqlFile splitStatements="false" path="getTreatmnetMonth.sql"/>
+    </changeSet>
+
 </databaseChangeLog>
