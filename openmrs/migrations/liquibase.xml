@@ -2427,13 +2427,6 @@
         </sql>
         <sqlFile splitStatements="false" path="basicRegisterTreatment.sql"/>
     </changeSet>
-    <changeSet id="ENDTB-2017121645" author="Sudhamsh" runAlways="true">
-        <comment>Culture Conversion Report Procedure</comment>
-        <sql>
-            DROP PROCEDURE IF EXISTS cultureConversionReport;
-        </sql>
-        <sqlFile splitStatements="false" path="cultureConversionReport.sql"/>
-    </changeSet>
     <changeSet id="ENDTB-2017121648" author="Sudhamsh" runAlways="true">
         <comment>Get Treatment Month Function</comment>
         <sql>
