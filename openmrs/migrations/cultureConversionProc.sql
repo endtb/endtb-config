@@ -23,8 +23,8 @@ BEGIN
 		epp.patient_program_id,
 		getTreatmentMonth(
 			Datediff(
-				ttro.value_datetime,
-				obs.obs_datetime
+				obs.obs_datetime,
+				ttro.value_datetime
 			)
 		) TreatmentMonth
 	FROM
