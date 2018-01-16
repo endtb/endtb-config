@@ -2447,7 +2447,7 @@
                 select count(*) from concept_view where concept_full_name in ('TI, What is the situation of the patient?', 'What is the situation of the patient?', 'TI, Additional comments (on why the patient is being started on new TB drugs)', 'TI, situation 1','TI, situation 2','TI, situation 3' );
             </sqlCheck>
         </preConditions>
-        <comment>Adding two concepts What is the situation of the patient & Additional comments to Treatment Intiation form  </comment>
+        <comment>Adding two concepts What is the situation of the patient and Additional comments to Treatment Intiation form  </comment>
         <sql>
             set @concept_id = 0;
             set @concept_name_short_id = 0;
