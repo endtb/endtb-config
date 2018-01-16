@@ -2441,7 +2441,7 @@
         </sql>
         <sqlFile splitStatements="false" path="getTreatmnetMonth.sql"/>
     </changeSet>
-    <changeSet id="ENDTB-201801152349" author="Sudhamsh">
+    <changeSet id="ENDTB-201801152359" author="Sudhamsh">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">
                 select count(*) from concept_view where concept_full_name in ('TI, What is the situation of the patient?', 'What is the situation of the patient?', 'TI, Additional comments (on why the patient is being started on new TB drugs)', 'TI, situation 1','TI, situation 2','TI, situation 3' );
