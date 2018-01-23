@@ -2507,4 +2507,17 @@
         </sql>
     </changeSet>
 
+    <changeSet id="ENDTB-201801232331" author="Sudhamsh">
+    <preConditions onFail="MARK_RAN">
+        <sqlCheck expectedResult="0">
+            select count(*) from concept_description where concept_id = (select concept_id from concept_name where name = 'TI, What is the situation of the patient?' and concept_name_type = 'FULLY_SPECIFIED');
+        </sqlCheck>
+    </preConditions>
+    <comment>Adding two concepts What is the situation of the patient and Additional comments to Treatment Intiation form  </comment>
+    <sql>
+        <![CDATA[select concept_id into @concept_id from concept_view where concept_full_name = 'TI, What is the situation of the patient?';
+        insert into concept_description (concept_id,description,locale,creator,date_created,changed_by,date_changed,uuid)values(@concept_id,'Situation 1: The patient is starting a new regimen that contains new drugs. In this situation, when the patient starts the new regimen, the previous treatment should be closed and the appropriate outcome should be recorded.<br />Situation 2: If an empiric regimen for a duration longer than a month is being changed due to the results of a baseline DST (i.e. the treatment is "adapted" to the baseline DST results), the previous treatment should be closed and the outcome should be recorded as "Treatment adapted". <br /> Situation 3: If the regimen is being changed due to adverse events (e.g. replacement of kanamycin with bedaquiline) but the patient is culture negative and does not fulfill the definition of failure, this is not considered a new treatment, but rather a continuation of the original treatment.', 'en','1', curdate(),null,null,uuid());]]>
+    </sql>
+    </changeSet>
+
 </databaseChangeLog>
