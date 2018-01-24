@@ -22,7 +22,7 @@
   "config": {
     "networkConnectivity" : {
       "showNetworkStatusMessage": true,
-      "networkStatusCheckInterval": 5000,
+      "networkStatusCheckInterval": 8000,
         "locales" : [
           { "locale" : "fr", "css" : "offline-language-french"},
           { "locale" : "es", "css": "offline-language-spanish"},
@@ -930,9 +930,6 @@
         "allowAddMore": true
       },
       "Documents, Date": {
-        "required": true
-      },
-      "Documents, Image": {
         "required": true
       }
     }
