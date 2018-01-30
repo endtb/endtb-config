@@ -931,6 +931,15 @@
       },
       "Documents, Date": {
         "required": true
+      },
+      "Pregnancy Report Form Template" : {
+        "allowAddMore": true
+      },
+      "Hospital Admission Notification Template" : {
+        "allowAddMore": true
+      },
+      "Hospital Discharge Summary Template" : {
+        "allowAddMore": true
       }
     }
   }
