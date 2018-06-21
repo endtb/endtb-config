@@ -13,175 +13,175 @@ SELECT
 
   IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 15 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 15 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 45 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 15 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 46 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M1',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 45 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 46 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 45 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 75 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 46 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 76 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M2',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 75 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 76 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 75 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 105 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 76 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 107 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M3',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 105 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 107 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 105 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 135 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 107 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 137 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M4',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 135 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 137 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 135 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 165 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 137 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 168 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M5',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 165 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 168 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 165 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 195 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 168 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 198 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M6',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 195 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 198 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 195 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 225 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 198 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 229 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M7',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 225 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 229 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 225 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 255 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 229 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 259 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M8',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 255 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 259 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 255 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 285 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 259 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 290 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M9',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 285 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 290 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 285 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 315 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 290 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 320 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M10',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 315 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 320 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 315 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 345 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 320 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 351 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M11',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 345 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 351 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 345 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 375 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 351 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 381 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M12',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 375 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 381 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 375 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 405 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 381 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 412 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M13',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 405 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 412 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 405 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 435 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 412 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 442 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M14',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 435 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 442 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 435 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 465 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 442 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 473 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M15',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 465 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 473 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 465 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 495 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 473 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 503 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M16',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 495 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 503 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 495 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 525 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 503 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 534 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M17',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 525 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 534 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 525 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 555 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 534 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 564 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M18',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 555 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 564 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 555 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 585 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 564 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 595 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M19',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 585 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 595 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 585 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 615 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 595 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 625 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M20',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 615 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 625 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 615 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 645 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 625 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 656 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M21',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 645 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 656 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 645 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 675 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 656 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 686 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M22',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 675 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 686 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 675 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 705 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 686 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 717 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M23',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 705 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 717 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 705 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 735 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 717 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 747 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M24',
 
-  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 735 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
+  IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 747 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
-      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 735 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 765 DAY), 'X', 'O'),
+      IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 747 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 778 DAY), 'X', 'O'),
       'O')),
     NULL
   ) AS 'M25',
