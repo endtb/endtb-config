@@ -1065,6 +1065,42 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         }
         else
             return false;
+    },
+    'DAA treatment outcome': function (formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var outcome = formFieldValues['DAA treatment outcome'];
+        var Transferedout = "If Not evaluated, did the patient transfer out?";
+        var enDOD = "If death, date of death";
+
+        if (outcome == "HTO, Death") {
+            conditions.enable.push(enDOD);
+        } else {
+            conditions.disable.push(enDOD, Transferedout);
+        }
+        if (outcome == "HTO, Not Evaluated") {
+            conditions.enable.push(Transferedout);
+        } else {
+            conditions.disable.push(Transferedout, enDOD);
+        }
+        return conditions;
+    },
+    'If Not evaluated, did the patient transfer out?': function (formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var transfered = formFieldValues['If Not evaluated, did the patient transfer out?'];
+        var where = "If transferred out, patient transferred out to where?";
+        var why = "If did not transfer out, why does the patient have this outcome?";
+
+        if (transfered == "True") {
+            conditions.enable.push(where);
+        } else {
+            conditions.disable.push(where, why);
+        }
+        if (transfered == "False") {
+            conditions.enable.push(why);
+        } else {
+            conditions.disable.push(why, where);
+        }
+        return conditions;
     }
 
 };

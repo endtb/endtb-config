@@ -940,6 +940,9 @@
       },
       "Hospital Discharge Summary Template" : {
         "allowAddMore": true
+      },
+      "The last day the patient received hepatitis C treatment" : {
+        "required": true
       }
     }
   }
