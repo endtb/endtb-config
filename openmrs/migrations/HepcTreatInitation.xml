@@ -59,7 +59,7 @@
         call add_concept_set_members (@concept_id, @member1_concept_id, @weight+1);
 
         <![CDATA[select concept_id into @concept_id from concept_view where concept_full_name = 'Has the patient signed a consent form for the Hepatitis C Study?';
-        insert into concept_description (concept_id,description,locale,creator,date_created,changed_by,date_changed,uuid)values(@concept_id,'Patients included retrospectively and who are not reachable to ask for informed consent (died, LTFU, transfer out, already concluded treatment).', 'en','1', curdate(),null,null,uuid());]]>
+        insert into concept_description (concept_id,description,locale,creator,date_created,changed_by,date_changed,uuid)values(@concept_id,'Not applicable: Patients included retrospectively and who are not reachable to ask for informed consent (died, LTFU, transfer out, already concluded  treatment).', 'en','1', curdate(),null,null,uuid());]]>
 
 
         call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id,'End stage liver disease', 'End stage liver disease', 'N/A','Misc', FALSE);

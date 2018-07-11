@@ -943,6 +943,18 @@
       },
       "The last day the patient received hepatitis C treatment" : {
         "required": true
+      },
+      "Date alcohol abuse or PHQ-9 screening performed" : {
+        "required": true
+      },
+      "Hep C Treatment Outcome Template" : {
+        "allowAddMore": true
+      },
+      "Hep C Treatment Initiation Template" : {
+        "allowAddMore": true
+      },
+      "Depression Alcohol Score Template" : {
+        "allowAddMore": true
       }
     }
   }

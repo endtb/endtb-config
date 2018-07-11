@@ -2521,4 +2521,7 @@
     </changeSet>
     <include file ="HepcTreatOutcome.xml"/>
     <include file ="HepcTreatInitation.xml"/>
+    <include file ="DepressionAlcoholScore.xml"/>
+    <include file ="Liverfibroscan.xml"/>
+    <include file ="Pastinformation.xml"/>
 </databaseChangeLog>

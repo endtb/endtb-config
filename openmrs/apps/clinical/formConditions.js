@@ -1101,6 +1101,27 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
             conditions.disable.push(why, where);
         }
         return conditions;
+    },
+
+    'Reason that DAA was not given during the study period': function (formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['Reason that DAA was not given during the study period'];
+        if (conditionConcept == "Other") {
+            conditions.enable.push("Other reason not to start DAA during study period")
+        } else {
+            conditions.disable.push("Other reason not to start DAA during study period")
+        }
+        return conditions;
+    },
+    'Reason to start DAA at this time (chose all those that apply)': function (formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['Reason to start DAA at this time (chose all those that apply)'];
+        if (conditionConcept == "Other") {
+            conditions.enable.push("Other reasons to start DAA")
+        } else {
+            conditions.disable.push("Other reasons to start DAA")
+        }
+        return conditions;
     }
 
 };
