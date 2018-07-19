@@ -2524,4 +2524,18 @@
     <include file ="DepressionAlcoholScore.xml"/>
     <include file ="Liverfibroscan.xml"/>
     <include file ="Pastinformation.xml"/>
+    <include file ="NewLabResults.xml"/>
+    <changeSet id="ENDTB-201807171208" author="Sudhamsh">
+    <preConditions onFail="MARK_RAN">
+        <sqlCheck expectedResult="1">
+            select count(*) from drug where name = "Tenofovir/fumarate (tdf/ftc) 300mg/200mg";
+        </sqlCheck>
+    </preConditions>
+    <comment> Updating the drug name from Tenofovir/fumarate (tdf/ftc) 300mg/200mg to Tenofovir/Emtricitabine (TDF/FTC) 300/200mg </comment>
+    <sql>
+        update drug set name = "Tenofovir/Emtricitabine (TDF/FTC) 300/200mg" where name = "Tenofovir/fumarate (tdf/ftc) 300mg/200mg";
+        update concept_name set name = "Tenofovir/Emtricitabine (TDF/FTC) 300/200mg" where name = "Tenofovir/fumarate (tdf/ftc) 300mg/200mg" and locale = 'en' and voided = 0;
+    </sql>
+    </changeSet>
+
 </databaseChangeLog>

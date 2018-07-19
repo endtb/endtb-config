@@ -9,20 +9,20 @@
 
 <changeSet id="ENDTB-201807021248" author="Sudhamsh">
     <sql>
-        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Has the patient started DAA treatment?', 'Has the patient started DAA treatment?', 'Coded','Misc', FALSE);
+        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'HTI, Has the patient started DAA treatment?', 'Has the patient started DAA treatment?', 'Coded','Misc', FALSE);
         set @concept1_id = @concept_id;
-        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Has the patient signed a consent form for the Hepatitis C Study?', 'Consent for Hepatitis C Study signed?' , 'Coded','Misc', FALSE);
+        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'HTI, Has the patient signed a consent form for the Hepatitis C Study?', 'Consent for Hepatitis C Study signed?' , 'Coded','Misc', FALSE);
         set @concept2_id = @concept_id;
         select concept_id into @child3_concept_id from concept_view where concept_full_name = 'HTI, Hepatitis C study number';
-        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'DAA treatment start date:', 'DAA treatment start date:', 'Date','Misc', FALSE);
+        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'HTI, DAA treatment start date:', 'DAA treatment start date:', 'Date','Misc', FALSE);
         set @concept4_id = @concept_id;
-        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Reason to start DAA at this time (chose all those that apply)', 'Reason to start DAA at this time (chose all those that apply)', 'Coded','Misc', FALSE);
+        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'HTI, Reason to start DAA at this time (chose all those that apply)', 'Reason to start DAA at this time (chose all those that apply)', 'Coded','Misc', FALSE);
         set @concept5_id = @concept_id;
-        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Other reasons to start DAA', 'Other reasons to start DAA', 'Text','Misc', FALSE);
+        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'HTI, Other reasons to start DAA', 'Other reasons to start DAA', 'Text','Misc', FALSE);
         set @concept6_id = @concept_id;
-        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Reason that DAA was not given during the study period', 'Reason that DAA was not given during the study period', 'Coded','Misc', FALSE);
+        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'HTI, Reason that DAA was not given during the study period', 'Reason that DAA was not given during the study period', 'Coded','Misc', FALSE);
         set @concept7_id = @concept_id;
-        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Other reason not to start DAA during study period', 'Other reason not to start DAA during study period', 'Text','Misc', FALSE);
+        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'HTI, Other reason not to start DAA during study period', 'Other reason not to start DAA during study period', 'Text','Misc', FALSE);
         set @concept8_id = @concept_id;
         call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "Hep C Treatment Initiation Template", "Hep C Treatment Initiation", 'N/A', "Misc", TRUE);
 
@@ -58,9 +58,8 @@
 
         call add_concept_set_members (@concept_id, @member1_concept_id, @weight+1);
 
-        <![CDATA[select concept_id into @concept_id from concept_view where concept_full_name = 'Has the patient signed a consent form for the Hepatitis C Study?';
+        <![CDATA[select concept_id into @concept_id from concept_view where concept_full_name = 'HTI, Has the patient signed a consent form for the Hepatitis C Study?';
         insert into concept_description (concept_id,description,locale,creator,date_created,changed_by,date_changed,uuid)values(@concept_id,'Not applicable: Patients included retrospectively and who are not reachable to ask for informed consent (died, LTFU, transfer out, already concluded  treatment).', 'en','1', curdate(),null,null,uuid());]]>
-
 
         call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id,'End stage liver disease', 'End stage liver disease', 'N/A','Misc', FALSE);
         set @child1_concept_id = @concept_id;
@@ -104,7 +103,7 @@
         call add_concept_answer (@concept5_id, @child7_concept_id, 7);
     </sql>
 </changeSet>
-<changeSet id="ENDTB-201807021516" author="Sudhamsh">
+<changeSet id="ENDTB-201807181316" author="Sudhamsh">
     <preConditions onFail="MARK_RAN">
         <sqlCheck expectedResult="0">
             select count(*) from concept_reference_term  where code IN ('startDAA','consent_DAA','d_startDAA','reas_startDAA','reas_startDAA_oth','reas_nostartDAA_oth','reas_nostartDAA');
@@ -122,13 +121,13 @@
         (4,'reas_nostartDAA_oth',@source_id,uuid(),now()),
         (4,'reas_nostartDAA',@source_id,uuid(),now());
 
-        call create_reference_mapping('Has the patient started DAA treatment?','startDAA');
-        call create_reference_mapping('Has the patient signed a consent form for the Hepatitis C Study?','consent_DAA');
-        call create_reference_mapping('DAA treatment start date:','d_startDAA');
-        call create_reference_mapping('Reason to start DAA at this time (chose all those that apply)','reas_startDAA');
-        call create_reference_mapping('Other reasons to start DAA','reas_startDAA_oth');
-        call create_reference_mapping('Reason that DAA was not given during the study period','reas_nostartDAA_oth');
-        call create_reference_mapping('Other reason not to start DAA during study period','reas_nostartDAA');
+        call create_reference_mapping('HTI, Has the patient started DAA treatment?','startDAA');
+        call create_reference_mapping('HTI, Has the patient signed a consent form for the Hepatitis C Study?','consent_DAA');
+        call create_reference_mapping('HTI, DAA treatment start date:','d_startDAA');
+        call create_reference_mapping('HTI, Reason to start DAA at this time (chose all those that apply)','reas_startDAA');
+        call create_reference_mapping('HTI, Other reasons to start DAA','reas_startDAA_oth');
+        call create_reference_mapping('HTI, Reason that DAA was not given during the study period','reas_nostartDAA_oth');
+        call create_reference_mapping('HTI, Other reason not to start DAA during study period','reas_nostartDAA');
 
         call create_reference_mapping('Advanced fibrosis (F3/F4)', 1);
         call create_reference_mapping('Genotype 3', 2);

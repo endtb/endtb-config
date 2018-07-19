@@ -9,21 +9,21 @@
 
     <changeSet id="ENDTB-201806291217" author="Sudhamsh">
         <sql>
-        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "The last day the patient received hepatitis C treatment","Last day hepatitis C treatment" , 'Date','Misc', FALSE);
+        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "HTO, The last day the patient received hepatitis C treatment","Last day hepatitis C treatment" , 'Date','Misc', FALSE);
             set @concept1_id = @concept_id;
-        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "Date that the outcome was decided","Date that the outcome was decided" , 'Date','Misc', FALSE);
+        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "HTO, Date that the outcome was decided","Date that the outcome was decided" , 'Date','Misc', FALSE);
             set @concept2_id = @concept_id;
-        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "Hepatitis C study number","Hepatitis C study number" , 'Text','Misc', FALSE);
+        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "HTO, Hepatitis C study number","Hepatitis C study number" , 'Text','Misc', FALSE);
             set @concept3_id = @concept_id;
-        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "DAA treatment outcome","DAA treatment outcome" , 'Coded','Misc', FALSE);
+        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "HTO, DAA treatment outcome","DAA treatment outcome" , 'Coded','Misc', FALSE);
             set @concept4_id = @concept_id;
-        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "If death, date of death","If death, date of death" , 'Date','Misc', FALSE);
+        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "HTO, If death, date of death","If death, date of death" , 'Date','Misc', FALSE);
             set @concept5_id = @concept_id;
-        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "If Not evaluated, did the patient transfer out?", "Transferred?" , 'Coded','Misc', FALSE);
+        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "HTO, If Not evaluated, did the patient transfer out?", "Transferred?" , 'Coded','Misc', FALSE);
             set @concept6_id = @concept_id;
-        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "If transferred out, patient transferred out to where?", "If YES, transferred to where?" , 'Text','Misc', FALSE);
+        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "HTO, If transferred out, patient transferred out to where?", "If YES, transferred to where?" , 'Text','Misc', FALSE);
             set @concept7_id = @concept_id;
-        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "If did not transfer out, why does the patient have this outcome?", "If NO, other reasons for no evaluation of outcome" , 'Text','Misc', FALSE);
+        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "HTO, If did not transfer out, why does the patient have this outcome?", "If NO, other reasons for no evaluation of outcome" , 'Text','Misc', FALSE);
             set @concept8_id = @concept_id;
         call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, "Hep C Treatment Outcome Template", "Hep C Treatment Outcome", 'N/A', "Misc", TRUE);
         call add_concept_set_members (@concept_id,@concept1_id,1);
@@ -66,7 +66,7 @@
 
         call add_concept_set_members (@concept_id, @member1_concept_id, @weight+1);
 
-        <![CDATA[select concept_id into @concept_id from concept_view where concept_full_name = 'DAA treatment outcome';
+        <![CDATA[select concept_id into @concept_id from concept_view where concept_full_name = 'HTO, DAA treatment outcome';
         insert into concept_description (concept_id,description,locale,creator,date_created,changed_by,date_changed,uuid)values(@concept_id,'Treatment success= Negative PCR test or viral load concentration below 12IU/mL 12 weeks after the end of treatment (called SVR12).<br />Treatment failure=Positive PCR test or viral load concentration above 12IU/mL 12 weeks after the end of treatment (called SVR12).<br />Death= A patient, who dies for any reason during the course of treatment, notified the health facility, by a close relative or friend or reported by a tracing team.(report an SAE).<br />Loss to follow-up= is defined as two months after a planned date of appointment without contact, despite the possible tracing from the study team.', 'en','1', curdate(),null,null,uuid());]]>
         </sql>
     </changeSet>
@@ -90,14 +90,14 @@
             (4,'transfer_placeDAA',@source_id,uuid(),now()),
             (4,'reas_nooutDAA',@source_id,uuid(),now());
 
-            call create_reference_mapping('The last day the patient received hepatitis C treatment','d_lastDAA');
-            call create_reference_mapping('Date that the outcome was decided','d_outcomeDAA');
-            call create_reference_mapping('Hepatitis C study number','hepc_id');
-            call create_reference_mapping('DAA treatment outcome','outcomeDAA');
-            call create_reference_mapping('If death, date of death','d_deathDAA');
-            call create_reference_mapping('If Not evaluated, did the patient transfer out?','transferDAA');
-            call create_reference_mapping('If transferred out, patient transferred out to where?','transfer_placeDAA');
-            call create_reference_mapping('If did not transfer out, why does the patient have this outcome?','reas_nooutDAA');
+            call create_reference_mapping('HTO, The last day the patient received hepatitis C treatment','d_lastDAA');
+            call create_reference_mapping('HTO, Date that the outcome was decided','d_outcomeDAA');
+            call create_reference_mapping('HTO, Hepatitis C study number','hepc_id');
+            call create_reference_mapping('HTO, DAA treatment outcome','outcomeDAA');
+            call create_reference_mapping('HTO, If death, date of death','d_deathDAA');
+            call create_reference_mapping('HTO, If Not evaluated, did the patient transfer out?','transferDAA');
+            call create_reference_mapping('HTO, If transferred out, patient transferred out to where?','transfer_placeDAA');
+            call create_reference_mapping('HTO, If did not transfer out, why does the patient have this outcome?','reas_nooutDAA');
 
             call create_reference_mapping('Treatment Success', 1);
             call create_reference_mapping('Treatment Failure', 2);

@@ -710,6 +710,33 @@
       "RETURN VISIT DATE": {
         "allowFutureDates": true
       },
+      "Lab, Erythrocyte sedimentation rate":{
+        "isTabular": true
+      },
+      "Lab, lymphocytes" : {
+        "isTabular": true
+      },
+      "Lab, Mean Red Blood Cell volume": {
+        "isTabular": true
+      },
+      "Lab, Activated partial thromboplastin time": {
+        "isTabular": true
+      },
+      "Lab, Prothombon time" : {
+        "isTabular": true
+      },
+      "Lab, INR" : {
+        "isTabular": true
+      },
+      "Lab, Uric Acid" : {
+        "isTabular": true
+      },
+      "Lab, Creatinine clearance" : {
+        "isTabular": true
+      },
+      "Lab, GGT" : {
+        "isTabular": true
+      },
       "Lab, Hematocrit": {
         "isTabular": true
       },
@@ -795,6 +822,9 @@
         "disableAddNotes": true
       },
       "SERUM POTASSIUM": {
+        "disableAddNotes": true
+      },
+      "Erythrocyte sedimentation rate": {
         "disableAddNotes": true
       },
       "Lab, Magnesium test result": {
@@ -941,10 +971,10 @@
       "Hospital Discharge Summary Template" : {
         "allowAddMore": true
       },
-      "The last day the patient received hepatitis C treatment" : {
+      "HTO, The last day the patient received hepatitis C treatment" : {
         "required": true
       },
-      "Date alcohol abuse or PHQ-9 screening performed" : {
+      "DAS, Date alcohol abuse or PHQ-9 screening performed" : {
         "required": true
       },
       "Hep C Treatment Outcome Template" : {

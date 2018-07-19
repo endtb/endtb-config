@@ -1066,11 +1066,11 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         else
             return false;
     },
-    'DAA treatment outcome': function (formName, formFieldValues) {
+    'HTO, DAA treatment outcome': function (formName, formFieldValues) {
         var conditions = {enable: [], disable: []};
-        var outcome = formFieldValues['DAA treatment outcome'];
-        var Transferedout = "If Not evaluated, did the patient transfer out?";
-        var enDOD = "If death, date of death";
+        var outcome = formFieldValues['HTO, DAA treatment outcome'];
+        var Transferedout = "HTO, If Not evaluated, did the patient transfer out?";
+        var enDOD = "HTO, If death, date of death";
 
         if (outcome == "HTO, Death") {
             conditions.enable.push(enDOD);
@@ -1084,11 +1084,11 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         }
         return conditions;
     },
-    'If Not evaluated, did the patient transfer out?': function (formName, formFieldValues) {
+    'HTO, If Not evaluated, did the patient transfer out?': function (formName, formFieldValues) {
         var conditions = {enable: [], disable: []};
-        var transfered = formFieldValues['If Not evaluated, did the patient transfer out?'];
-        var where = "If transferred out, patient transferred out to where?";
-        var why = "If did not transfer out, why does the patient have this outcome?";
+        var transfered = formFieldValues['HTO, If Not evaluated, did the patient transfer out?'];
+        var where = "HTO, If transferred out, patient transferred out to where?";
+        var why = "HTO, If did not transfer out, why does the patient have this outcome?";
 
         if (transfered == "True") {
             conditions.enable.push(where);
@@ -1103,23 +1103,23 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         return conditions;
     },
 
-    'Reason that DAA was not given during the study period': function (formName, formFieldValues) {
+    'HTI, Reason that DAA was not given during the study period': function (formName, formFieldValues) {
         var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Reason that DAA was not given during the study period'];
+        var conditionConcept = formFieldValues['HTI, Reason that DAA was not given during the study period'];
         if (conditionConcept == "Other") {
-            conditions.enable.push("Other reason not to start DAA during study period")
+            conditions.enable.push("HTI, Other reason not to start DAA during study period")
         } else {
-            conditions.disable.push("Other reason not to start DAA during study period")
+            conditions.disable.push("HTI, Other reason not to start DAA during study period")
         }
         return conditions;
     },
-    'Reason to start DAA at this time (chose all those that apply)': function (formName, formFieldValues) {
+    'HTI, Reason to start DAA at this time (chose all those that apply)': function (formName, formFieldValues) {
         var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Reason to start DAA at this time (chose all those that apply)'];
+        var conditionConcept = formFieldValues['HTI, Reason to start DAA at this time (chose all those that apply)'];
         if (conditionConcept == "Other") {
-            conditions.enable.push("Other reasons to start DAA")
+            conditions.enable.push("HTI, Other reasons to start DAA")
         } else {
-            conditions.disable.push("Other reasons to start DAA")
+            conditions.disable.push("HTI, Other reasons to start DAA")
         }
         return conditions;
     }

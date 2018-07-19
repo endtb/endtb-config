@@ -167,9 +167,24 @@
           "6 month Post Treatment Outcome Template"
         ],
         "translationKey": "DASHBOARD_TITLE_OUTCOME_FORMS"
+      },
+      "HeptitiesCforms": {
+        "type": "forms",
+        "displayOrder": 12,
+        "dashboardConfig": {
+          "title": null,
+          "maximumNoOfVisits": 12
+        },
+        "formGroup": [
+          "Hep C Treatment Outcome Template",
+          "Hep C Treatment Initiation Template",
+          "Depression Alcohol Score Template"
+        ],
+        "translationKey": "DASHBOARD_TITLE_HEP_FORMS"
       }
     },
     "translationKey": "DASHBOARD_TAB_GENERAL_KEY"
+
   },
   "summary": {
     "displayByDefault": true,
@@ -198,6 +213,19 @@
         },
         "displayOrder": 1,
         "translationKey": "SUMMARY_TITLE_TREATMENT_INFORMATION"
+      },
+      "HepctreatmentInfo": {
+        "isObservation": true,
+        "displayType": "Full-Page",
+        "dashboardConfig": {
+          "showGroupDateTime": false,
+          "persistOrderOfConcepts": true,
+          "conceptNames": [
+            "HTI, DAA treatment start date:"
+          ]
+        },
+        "displayOrder": 2,
+        "translationKey": "SUMMARY_TITLE_HEPC_TREATMENT_INFORMATION"
       },
       "casedefinition": {
         "isObservation": true,
