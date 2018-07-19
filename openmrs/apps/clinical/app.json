@@ -737,6 +737,33 @@
       "Lab, GGT" : {
         "isTabular": true
       },
+      "Erythrocyte sedimentation rate":{
+        "disableAddNotes": true
+      },
+      "lymphocytes" : {
+        "disableAddNotes": true
+      },
+      "Mean Red Blood Cell volume": {
+        "disableAddNotes": true
+      },
+      "Activated partial thromboplastin time": {
+        "disableAddNotes": true
+      },
+      "Prothombon time" : {
+        "disableAddNotes": true
+      },
+      "INR" : {
+        "disableAddNotes": true
+      },
+      "Uric Acid" : {
+        "disableAddNotes": true
+      },
+      "Creatinine clearance" : {
+        "disableAddNotes": true
+      },
+      "GGT" : {
+        "disableAddNotes": true
+      },
       "Lab, Hematocrit": {
         "isTabular": true
       },
