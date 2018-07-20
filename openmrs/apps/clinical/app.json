@@ -1012,6 +1012,12 @@
       },
       "Depression Alcohol Score Template" : {
         "allowAddMore": true
+      },
+      "HTI, Reason to start DAA at this time (chose all those that apply)" : {
+        "multiSelect": true
+      },
+      "HTI, Reason that DAA was not given during the study period" : {
+        "multiSelect": true
       }
     }
   }

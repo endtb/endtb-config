@@ -318,7 +318,7 @@
         insert into concept_description (concept_id,description,locale,creator,date_created,changed_by,date_changed,uuid)values(@concept_id,"If you checked off any problems, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?", 'en','1', curdate(),null,null,uuid());]]>
 
         <![CDATA[select concept_id into @concept_id from concept_view where concept_full_name = 'DAS, The Patient Health Questionnaire (PHQ-9)';
-        insert into concept_description (concept_id,description,locale,creator,date_created,changed_by,date_changed,uuid)values(@concept_id,'<b>Over the past 2 weeks<b>', 'en','1', curdate(),null,null,uuid());]]>
+        insert into concept_description (concept_id,description,locale,creator,date_created,changed_by,date_changed,uuid)values(@concept_id,'<b>Over the past 2 weeks, how often have you been bothered by any of the following problems?<b>', 'en','1', curdate(),null,null,uuid());]]>
 
     </sql>
     </changeSet>
