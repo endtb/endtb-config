@@ -1,204 +1,203 @@
 {
 	"questions": [
+      {
+        "name": "Vital Signs",
+        "concepts": [
+          "Respiratory rate"
+        ],
+        "type": "Obs"
+      },
 
-		{
-			"name": "Vital Signs",
-			"concepts": [
-				"Respiratory rate"
-			],
-			"type": "Obs"
-		},
+      {
+        "name": "Weight",
+        "concepts": [
+          "Weight (kg)"
+        ],
+        "type": "Obs"
+      },
 
-		{
-			"name": "Weight",
-			"concepts": [
-				"Weight (kg)"
-			],
-			"type": "Obs"
-		},
-
-		{
-			"name": "Functional status",
-			"concepts": [
-				"ECOG Performance Status"
-				
-
-			],
-			"type": "Obs"
-		},
-
-		{
-			"name": "BPNS-Followup",
-			"concepts": [
-				"Followup, Pain Aching or Buring in Right Feet and Leg",
-				"Followup, Pain Aching or Buring in Right Feet and Leg"
-			],
-			"type": "Obs"
-		},
+      {
+        "name": "Functional status",
+        "concepts": [
+          "ECOG Performance Status"
 
 
-		{
-			"name": "Audiometry",
-			"concepts": [
-				"Audiometry, Audiometry date"
-			],
-			"type": "Obs"
-		},
+        ],
+        "type": "Obs"
+      },
+
+      {
+        "name": "BPNS-Followup",
+        "concepts": [
+          "Followup, Pain Aching or Buring in Right Feet and Leg",
+          "Followup, Pain Aching or Buring in Right Feet and Leg"
+        ],
+        "type": "Obs"
+      },
 
 
-		{
-			"name": "Visual Acuity",
-			"concepts": [
-				"Visual acuity, left eye",
-				"Visual acuity, right eye"
-			],
-			"type": "Obs"
-		},
-
-		{
-			"name": "Colour Blindness-Followup",
-			"concepts": [
-				"Followup, Colorblindness Screen Result"
-			],
-			"type": "Obs"
-		},
-
-		{
-			"name": "Outcome Consultation",
-			"concepts": [
-				"EOT, Outcome"
-
-			],
-			"type": "Obs"
-		},
-
-		{
-			"name": "Post Treatment Outcome Consultation",
-			"concepts": [
-				"6m PTO, 6 month post treatment outcome"
-			],
-			"type": "Obs"
-		},
+      {
+        "name": "Audiometry",
+        "concepts": [
+          "Audiometry, Audiometry date"
+        ],
+        "type": "Obs"
+      },
 
 
-		{
-			"name": "Adverse events evaluation",
-			"concepts": [
-				"AE Form, Date of AE report"
+      {
+        "name": "Visual Acuity",
+        "concepts": [
+          "Visual acuity, left eye",
+          "Visual acuity, right eye"
+        ],
+        "type": "Obs"
+      },
 
-			],
-			"type": "Obs"
-		},
+      {
+        "name": "Colour Blindness-Followup",
+        "concepts": [
+          "Followup, Colorblindness Screen Result"
+        ],
+        "type": "Obs"
+      },
 
-		{
-			"name": "Smear",
-			"concepts": [
-				"Bacteriology, Smear result"
+      {
+        "name": "Outcome Consultation",
+        "concepts": [
+          "EOT, Outcome"
 
-			],
-			"type": "Obs"
-		},
+        ],
+        "type": "Obs"
+      },
 
-		{
-			"name": "Culture",
-			"concepts": [
-				"Bacteriology, Culture results"
-
-			],
-			"type": "Obs"
-		},
-
-		{
-			"name": "Chest X-ray",
-			"concepts": [
-				"Xray, Extent of disease"
-
-			],
-			"type": "Obs"
-		},
-
-		{
-			"name": "ECG",
-			"concepts": [
-				"EKG, QTcF Interval"
-
-			],
-			"type": "Obs"
-		},
+      {
+        "name": "Post Treatment Outcome Consultation",
+        "concepts": [
+          "6m PTO, 6 month post treatment outcome"
+        ],
+        "type": "Obs"
+      },
 
 
-		{
-			"name": "Full blood count (Hb)",
-			"concepts": [
-				"Lab, Hemoglobin g/dl"
+      {
+        "name": "Adverse events evaluation",
+        "concepts": [
+          "AE Form, Date of AE report"
 
-			],
-			"type": "Obs"
-		},
+        ],
+        "type": "Obs"
+      },
 
-		{
-			"name": "Creatinine",
-			"concepts": [
-				"Lab, Creatinine other"
+      {
+        "name": "Smear",
+        "concepts": [
+          "Bacteriology, Smear result"
 
-			],
-			"type": "Obs"
-		},
+        ],
+        "type": "Obs"
+      },
 
-		{
-			"name": "Serum electrolytes (K)",
-			"concepts": [
-				"SERUM POTASSIUM"
+      {
+        "name": "Culture",
+        "concepts": [
+          "Bacteriology, Culture results"
 
-			],
-			"type": "Obs"
-		},
-		
-		{
-			"name": "Liver Function Test-AST",
-			"concepts": [
-				"SERUM GLUTAMIC-OXALOACETIC TRANSAMINASE"
+        ],
+        "type": "Obs"
+      },
 
-			],
-			"type": "Obs"
-		},
-		
-		{
-			"name": "Liver Function Test-ALT",
-			"concepts": [
-				"SERUM GLUTAMIC-PYRUVIC TRANSAMINASE"
+      {
+        "name": "Chest X-ray",
+        "concepts": [
+          "Xray, Extent of disease"
 
-			],
-			"type": "Obs"
-		},
-		
+        ],
+        "type": "Obs"
+      },
 
-		{
-			"name": "TSH",
-			"concepts": [
-				"Thyroid stimulating hormone test"
+      {
+        "name": "ECG",
+        "concepts": [
+          "EKG, QTcF Interval"
 
-			],
-			"type": "Obs"
-		},
+        ],
+        "type": "Obs"
+      },
 
-		{
-			"name": "Serum Albumin",
-			"concepts": [
-				"SERUM ALBUMIN"
 
-			],
-			"type": "Obs"
-		},
+      {
+        "name": "Full blood count (Hb)",
+        "concepts": [
+          "Lab, Hemoglobin g/dl"
 
-		{
-			"name": "Pregnancy test",
-			"concepts": [
-				"Lab, Pregnancy test result"
+        ],
+        "type": "Obs"
+      },
 
-			],
-			"type": "Obs"
-		}
+      {
+        "name": "Creatinine",
+        "concepts": [
+          "Lab, Creatinine other"
+
+        ],
+        "type": "Obs"
+      },
+
+      {
+        "name": "Serum electrolytes (K)",
+        "concepts": [
+          "SERUM POTASSIUM"
+
+        ],
+        "type": "Obs"
+      },
+
+      {
+        "name": "Liver Function Test-AST",
+        "concepts": [
+          "SERUM GLUTAMIC-OXALOACETIC TRANSAMINASE"
+
+        ],
+        "type": "Obs"
+      },
+
+      {
+        "name": "Liver Function Test-ALT",
+        "concepts": [
+          "SERUM GLUTAMIC-PYRUVIC TRANSAMINASE"
+
+        ],
+        "type": "Obs"
+      },
+
+
+      {
+        "name": "TSH",
+        "concepts": [
+          "Thyroid stimulating hormone test"
+
+        ],
+        "type": "Obs"
+      },
+
+      {
+        "name": "Serum Albumin",
+        "concepts": [
+          "SERUM ALBUMIN"
+
+        ],
+        "type": "Obs"
+      },
+
+      {
+        "name": "Pregnancy test",
+        "concepts": [
+          "Lab, Pregnancy test result"
+
+        ],
+        "type": "Obs"
+      }
 
 	],
 	"milestones": [{
@@ -215,7 +214,7 @@
 			"name": "M1",
 			"config": {
 				"min": 15,
-				"max": 44
+				"max": 45
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -223,8 +222,8 @@
 		}, {
 			"name": "M2",
 			"config": {
-				"min": 45,
-				"max": 74
+				"min": 46,
+				"max": 75
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -232,8 +231,8 @@
 		}, {
 			"name": "M3",
 			"config": {
-				"min": 75,
-				"max": 104
+				"min": 76,
+				"max": 106
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -241,8 +240,8 @@
 		}, {
 			"name": "M4",
 			"config": {
-				"min": 105,
-				"max": 134
+				"min": 107,
+				"max": 136
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -250,8 +249,8 @@
 		}, {
 			"name": "M5",
 			"config": {
-				"min": 135,
-				"max": 164
+				"min": 137,
+				"max": 167
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -259,8 +258,8 @@
 		}, {
 			"name": "M6",
 			"config": {
-				"min": 165,
-				"max": 194
+				"min": 168,
+				"max": 197
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -268,8 +267,8 @@
 		}, {
 			"name": "M7",
 			"config": {
-				"min": 195,
-				"max": 224
+				"min": 198,
+				"max": 228
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -277,8 +276,8 @@
 		}, {
 			"name": "M8",
 			"config": {
-				"min": 225,
-				"max": 254
+				"min": 229,
+				"max": 258
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -286,8 +285,8 @@
 		}, {
 			"name": "M9",
 			"config": {
-				"min": 255,
-				"max": 284
+				"min": 259,
+				"max": 289
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -295,8 +294,8 @@
 		}, {
 			"name": "M10",
 			"config": {
-				"min": 285,
-				"max": 314
+				"min": 290,
+				"max": 319
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -304,8 +303,8 @@
 		}, {
 			"name": "M11",
 			"config": {
-				"min": 315,
-				"max": 344
+				"min": 320,
+				"max": 350
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -313,8 +312,8 @@
 		}, {
 			"name": "M12",
 			"config": {
-				"min": 345,
-				"max": 374
+				"min": 351,
+				"max": 380
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -322,8 +321,8 @@
 		}, {
 			"name": "M13",
 			"config": {
-				"min": 375,
-				"max": 404
+				"min": 381,
+				"max": 411
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -331,8 +330,8 @@
 		}, {
 			"name": "M14",
 			"config": {
-				"min": 405,
-				"max": 434
+				"min": 412,
+				"max": 441
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -340,8 +339,8 @@
 		}, {
 			"name": "M15",
 			"config": {
-				"min": 435,
-				"max": 464
+				"min": 442,
+				"max": 472
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -349,8 +348,8 @@
 		}, {
 			"name": "M16",
 			"config": {
-				"min": 465,
-				"max": 494
+				"min": 473,
+				"max": 502
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -358,8 +357,8 @@
 		}, {
 			"name": "M17",
 			"config": {
-				"min": 495,
-				"max": 524
+				"min": 503,
+				"max": 533
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -367,8 +366,8 @@
 		}, {
 			"name": "M18",
 			"config": {
-				"min": 525,
-				"max": 554
+				"min": 534,
+				"max": 563
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -376,8 +375,8 @@
 		}, {
 			"name": "M19",
 			"config": {
-				"min": 555,
-				"max": 584
+				"min": 564,
+				"max": 594
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -385,8 +384,8 @@
 		}, {
 			"name": "M20",
 			"config": {
-				"min": 585,
-				"max": 614
+				"min": 595,
+				"max": 624
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -394,8 +393,8 @@
 		}, {
 			"name": "M21",
 			"config": {
-				"min": 615,
-				"max": 644
+				"min": 625,
+				"max": 655
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -403,8 +402,8 @@
 		}, {
 			"name": "M22",
 			"config": {
-				"min": 645,
-				"max": 674
+				"min": 656,
+				"max": 685
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -413,8 +412,8 @@
 		{
 			"name": "M23",
 			"config": {
-				"min": 675,
-				"max": 704
+				"min": 686,
+				"max": 716
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -423,8 +422,8 @@
 		{
 			"name": "M24",
 			"config": {
-				"min": 705,
-				"max": 734
+				"min": 717,
+				"max": 746
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -433,8 +432,8 @@
 		{
 			"name": "M25",
 			"config": {
-				"min": 735,
-				"max": 764
+				"min": 747,
+				"max": 777
 			},
 			"questions": [
 				"Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
@@ -443,8 +442,8 @@
 		{
 			"name": "M26",
 			"config": {
-				"min": 765,
-				"max": 794
+				"min": 778,
+				"max": 807
 			},
 			"questions": ["Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
 			]
@@ -452,8 +451,8 @@
 		{
 			"name": "M27",
 			"config": {
-				"min": 795,
-				"max": 824
+				"min": 808,
+				"max": 838
 			},
 			"questions": ["Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
 			]
@@ -461,8 +460,8 @@
 		{
 			"name": "M28",
 			"config": {
-				"min": 825,
-				"max": 854
+				"min": 839,
+				"max": 868
 			},
 			"questions": ["Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
 			]
@@ -470,8 +469,8 @@
 		{
 			"name": "M29",
 			"config": {
-				"min": 855,
-				"max": 884
+				"min": 869,
+				"max": 899
 			},
 			"questions": ["Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
 			]
@@ -479,14 +478,35 @@
 		{
 			"name": "M30",
 			"config": {
-				"min": 885,
-				"max": 914
+				"min": 900,
+				"max": 929
 			},
 			"questions": ["Vital Signs","Weight","Functional status","BPNS-Followup","Audiometry","Visual Acuity","Colour Blindness-Followup","Outcome Consultation","Post Treatment Outcome Consultation","Adverse events evaluation","Smear","Culture","Chest X-ray","Full blood count (Hb)","ECG","Creatinine","Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT","TSH","Serum Albumin","Pregnancy test"
 			]
-		}
+		},
+        {
+          "name": "MTx",
+          "config": {
+            "min": -15,
+            "max": 15
+          },
+          "handler": "org.bahmni.flowsheet.definition.impl.TreatmentEndDateHandler",
+          "questions": [
+            "Functional status", "Audiometry", "Visual Acuity", "Colour Blindness-Followup","BPNS-Followup","Outcome Consultation", "Adverse events evaluation", "Smear", "Culture", "Chest X-ray", "Full blood count (Hb)", "ECG", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
+          ]
+        }, {
+          "name": "M6M",
+          "config": {
+            "min": -30,
+            "max": 30
+          },
+          "handler": "org.bahmni.flowsheet.definition.impl.SixMonthPostTreatmentOutcomeHandler",
+          "questions": [
+            "BPNS-Followup", "Post Treatment Outcome Consultation","Colour Blindness-Followup","Visual Acuity", "Adverse events evaluation", "Smear", "Culture", "ECG"
+          ]
+        }
 	],
-	
+
 	"trackPending": "false",
 	"trackPlanned": "false"
 

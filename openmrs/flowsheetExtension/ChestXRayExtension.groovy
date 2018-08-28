@@ -39,7 +39,7 @@ public class ChestXRayExtension extends BaseTableExtension<PivotTable> {
             for (PivotRow pivotRow : pivotTable.getRows()) {
                 Date rowDate = getRowDate(pivotRow);
                 Days days = Days.daysBetween(new DateTime(startDate), new DateTime(rowDate));
-                String month = String.format("%.1f", days.getDays() / 30.0F);
+                String month = String.format("%.1f", days.getDays() / 30.5F);
                 setMonth(concept, pivotRow, month);
             }
         } catch (Exception e) {

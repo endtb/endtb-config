@@ -95,7 +95,7 @@ public class BMIExtension extends BaseTableExtension<PivotTable> {
     private void calucluateMonth(Date startDate, PivotRow pivotRow, Date rowDate, EncounterTransaction.Concept concept) {
         Days days = Days.daysBetween(new DateTime(startDate), new DateTime(rowDate));
 
-        String month = String.format("%.1f", days.getDays() / 30.0F);
+        String month = String.format("%.1f", days.getDays() / 30.5F);
 
         BahmniObservation bahmniObservation = new BahmniObservation();
         bahmniObservation.setConcept(concept);

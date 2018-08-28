@@ -64,7 +64,7 @@ public class CurrentMonthOfTreatment implements ObservationsAdder {
         DateTime startDateTime = new DateTime(startDate);
         DateTime endDateTime = new DateTime(endDate)
         Days days = Days.daysBetween(startDateTime, endDateTime);
-        return String.format("%.1f", days.getDays() / 30.0F);
+        return String.format("%.1f", days.getDays() / 30.5F);
     }
 
     private BahmniObservation getObservationForConceptName(Collection<BahmniObservation> observations, String conceptName) {

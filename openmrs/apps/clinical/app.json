@@ -22,7 +22,7 @@
   "config": {
     "networkConnectivity" : {
       "showNetworkStatusMessage": true,
-      "networkStatusCheckInterval": 5000,
+      "networkStatusCheckInterval": 8000,
         "locales" : [
           { "locale" : "fr", "css" : "offline-language-french"},
           { "locale" : "es", "css": "offline-language-spanish"},
@@ -710,6 +710,60 @@
       "RETURN VISIT DATE": {
         "allowFutureDates": true
       },
+      "Lab, Erythrocyte sedimentation rate":{
+        "isTabular": true
+      },
+      "Lab, lymphocytes" : {
+        "isTabular": true
+      },
+      "Lab, Mean Red Blood Cell volume": {
+        "isTabular": true
+      },
+      "Lab, Activated partial thromboplastin time": {
+        "isTabular": true
+      },
+      "Lab, Prothombon time" : {
+        "isTabular": true
+      },
+      "Lab, INR" : {
+        "isTabular": true
+      },
+      "Lab, Uric Acid" : {
+        "isTabular": true
+      },
+      "Lab, Creatinine clearance" : {
+        "isTabular": true
+      },
+      "Lab, GGT" : {
+        "isTabular": true
+      },
+      "Erythrocyte sedimentation rate":{
+        "disableAddNotes": true
+      },
+      "lymphocytes" : {
+        "disableAddNotes": true
+      },
+      "Mean Red Blood Cell volume": {
+        "disableAddNotes": true
+      },
+      "Activated partial thromboplastin time": {
+        "disableAddNotes": true
+      },
+      "Prothombon time" : {
+        "disableAddNotes": true
+      },
+      "INR" : {
+        "disableAddNotes": true
+      },
+      "Uric Acid" : {
+        "disableAddNotes": true
+      },
+      "Creatinine clearance" : {
+        "disableAddNotes": true
+      },
+      "GGT" : {
+        "disableAddNotes": true
+      },
       "Lab, Hematocrit": {
         "isTabular": true
       },
@@ -795,6 +849,9 @@
         "disableAddNotes": true
       },
       "SERUM POTASSIUM": {
+        "disableAddNotes": true
+      },
+      "Erythrocyte sedimentation rate": {
         "disableAddNotes": true
       },
       "Lab, Magnesium test result": {
@@ -932,8 +989,35 @@
       "Documents, Date": {
         "required": true
       },
-      "Documents, Image": {
+      "Pregnancy Report Form Template" : {
+        "allowAddMore": true
+      },
+      "Hospital Admission Notification Template" : {
+        "allowAddMore": true
+      },
+      "Hospital Discharge Summary Template" : {
+        "allowAddMore": true
+      },
+      "HTO, The last day the patient received hepatitis C treatment" : {
         "required": true
+      },
+      "DAS, Date alcohol abuse or PHQ-9 screening performed" : {
+        "required": true
+      },
+      "Hep C Treatment Outcome Template" : {
+        "allowAddMore": true
+      },
+      "Hep C Treatment Initiation Template" : {
+        "allowAddMore": true
+      },
+      "Depression Alcohol Score Template" : {
+        "allowAddMore": true
+      },
+      "HTI, Reason to start DAA at this time (chose all those that apply)" : {
+        "multiSelect": true
+      },
+      "HTI, Reason that DAA was not given during the study period" : {
+        "multiSelect": true
       }
     }
   }

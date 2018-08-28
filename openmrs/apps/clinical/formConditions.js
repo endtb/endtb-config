@@ -1065,6 +1065,63 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         }
         else
             return false;
+    },
+    'HTO, DAA treatment outcome': function (formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var outcome = formFieldValues['HTO, DAA treatment outcome'];
+        var Transferedout = "HTO, If Not evaluated, did the patient transfer out?";
+        var enDOD = "HTO, If death, date of death";
+
+        if (outcome == "HTO, Death") {
+            conditions.enable.push(enDOD);
+        } else {
+            conditions.disable.push(enDOD, Transferedout);
+        }
+        if (outcome == "HTO, Not Evaluated") {
+            conditions.enable.push(Transferedout);
+        } else {
+            conditions.disable.push(Transferedout, enDOD);
+        }
+        return conditions;
+    },
+    'HTO, If Not evaluated, did the patient transfer out?': function (formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var transfered = formFieldValues['HTO, If Not evaluated, did the patient transfer out?'];
+        var where = "HTO, If transferred out, patient transferred out to where?";
+        var why = "HTO, If did not transfer out, why does the patient have this outcome?";
+
+        if (transfered == "True") {
+            conditions.enable.push(where);
+        } else {
+            conditions.disable.push(where, why);
+        }
+        if (transfered == "False") {
+            conditions.enable.push(why);
+        } else {
+            conditions.disable.push(why, where);
+        }
+        return conditions;
+    },
+
+    'HTI, Reason that DAA was not given during the study period': function (formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['HTI, Reason that DAA was not given during the study period'];
+        if (conditionConcept == "Other") {
+            conditions.enable.push("HTI, Other reason not to start DAA during study period")
+        } else {
+            conditions.disable.push("HTI, Other reason not to start DAA during study period")
+        }
+        return conditions;
+    },
+    'HTI, Reason to start DAA at this time (chose all those that apply)': function (formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['HTI, Reason to start DAA at this time (chose all those that apply)'];
+        if (conditionConcept == "Other") {
+            conditions.enable.push("HTI, Other reasons to start DAA")
+        } else {
+            conditions.disable.push("HTI, Other reasons to start DAA")
+        }
+        return conditions;
     }
 
 };

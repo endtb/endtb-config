@@ -2423,4 +2423,136 @@
                     AND o.voided IS FALSE
         </sql>
     </changeSet>
+	<changeSet id="ENDTB-2017121635" author="Sudhamsh" runAlways="true">
+        <comment>Culture Conversion procedure</comment>
+        <sql>
+            DROP PROCEDURE IF EXISTS culture_conversion ;
+        </sql>
+        <sqlFile splitStatements="false" path="cultureConversionProc.sql"/>
+    </changeSet>
+    <changeSet id="ENDTB-2017121630" author="Sudhamsh" runAlways="true">
+        <comment>Smaer conversion Procedure</comment>
+        <sql>
+            DROP PROCEDURE IF EXISTS smear_conversion;
+        </sql>
+        <sqlFile splitStatements="false" path="smearConversionProc.sql"/>
+    </changeSet>
+        <changeSet id="ENDTB-2017121640" author="Sudhamsh" runAlways="true">
+        <comment>Basic Register Procedure</comment>
+        <sql>
+            DROP PROCEDURE IF EXISTS Basic_register;
+        </sql>
+        <sqlFile splitStatements="false" path="basicRegisterTreatment.sql"/>
+    </changeSet>
+    <changeSet id="ENDTB-2017121645" author="Sudhamsh" runAlways="true">
+        <comment>Culture Conversion Report Procedure</comment>
+        <sql>
+            DROP PROCEDURE IF EXISTS cultureConversionReport;
+        </sql>
+        <sqlFile splitStatements="false" path="cultureConversionReport.sql"/>
+    </changeSet>
+    <changeSet id="ENDTB-2017121648" author="Sudhamsh" runAlways="true">
+        <comment>Get Treatment Month Function</comment>
+        <sql>
+            DROP Function IF EXISTS getTreatmentMonth;
+        </sql>
+        <sqlFile splitStatements="false" path="getTreatmnetMonth.sql"/>
+    </changeSet>
+    <changeSet id="ENDTB-201801152359" author="Sudhamsh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_view where concept_full_name in ('TI, What is the situation of the patient?', 'What is the situation of the patient?', 'TI, Additional comments (on why the patient is being started on new TB drugs)', 'TI, situation 1','TI, situation 2','TI, situation 3' );
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding two concepts What is the situation of the patient and Additional comments to Treatment Intiation form  </comment>
+        <sql>
+            set @concept_id = 0;
+            set @concept_name_short_id = 0;
+            set @concept_name_full_id = 0;
+            select concept_id into @unknown_concept_id from concept_view where concept_full_name = 'Unknown';
+            select concept_id into @set_concept_id from concept_view where concept_full_name = 'Treatment Initiation Template';
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'TI, What is the situation of the patient?', 'What is the situation of the patient?', 'Coded', 'Misc', false);
+            set @child2_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'TI, Additional comments (on why the patient is being started on new TB drugs)', 'Additional comments (on why the patient is being started on new TB drugs)', 'Text', 'Misc', false);
+            set @child3_concept_id = @concept_id;
+
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'TI, situation 1', 'situation 1', 'N/A', 'Misc', false);
+            set @child21_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'TI, situation 2', 'situation 2', 'N/A', 'Misc', false);
+            set @child22_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'TI, situation 3', 'situation 3', 'N/A', 'Misc', false);
+            set @child23_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'TI, situation 4', 'situation 4', 'N/A', 'Misc', false);
+            set @child24_concept_id = @concept_id;
+
+            call add_concept_answer (@child2_concept_id, @child21_concept_id, 1);
+            call add_concept_answer (@child2_concept_id, @child22_concept_id, 2);
+            call add_concept_answer (@child2_concept_id, @child23_concept_id, 3);
+            call add_concept_answer (@child2_concept_id, @unknown_concept_id, 4);
+
+            select concept_id into @child21_concept_id from concept_view where concept_full_name = 'TI, situation 1';
+            insert into concept_description (concept_id,description,locale,creator,date_created,changed_by,date_changed,uuid)values(@child21_concept_id, 'The patient is starting a new regimen that contains new drugs. In this situation, when the patient starts the new regimen, the previous treatment should be closed and the appropriate outcome should be recorded.', 'en','1', curdate(),null,null,uuid());
+
+            select concept_id into @child22_concept_id from concept_view where concept_full_name = 'TI, situation 2';
+            insert into concept_description (concept_id,description,locale,creator,date_created,changed_by,date_changed,uuid)values(@child22_concept_id, 'If an empiric regimen for a duration longer than a month is being changed due to the results of a baseline DST (i.e. the treatment is "adapted" to the baseline DST results), the previous treatment should be closed and the outcome should be recorded as "Treatment adapted".', 'en','1', curdate(),null,null,uuid());
+
+            select concept_id into @child23_concept_id from concept_view where concept_full_name = 'TI, situation 3';
+            insert into concept_description (concept_id,description,locale,creator,date_created,changed_by,date_changed,uuid)values(@child23_concept_id, 'If the regimen is being changed due to adverse events (e.g. replacement of kanamycin with bedaquiline) but the patient is culture negative and does not fulfill the definition of failure, this is not considered a new treatment, but rather a continuation of the original treatment.', 'en','1', curdate(),null,null,uuid());
+
+            select concept_source_id into @source_id from concept_reference_source where name = 'EndTB-Export';
+            insert into concept_reference_term (creator,code,concept_source_id,uuid,date_created) values
+            (4,'situation_status',@source_id,uuid(),now()),
+            (4,'sit_comments',@source_id,uuid(),now());
+
+            call create_reference_mapping('TI, What is the situation of the patient?','situation_status');
+            call create_reference_mapping('TI, Additional comments (on why the patient is being started on new TB drugs)','sit_comments');
+            call create_reference_mapping('TI, situation 1','1');
+            call create_reference_mapping('TI, situation 2','2');
+            call create_reference_mapping('TI, situation 3','3');
+
+            select concept_id into @set1_concept_id from concept_view where concept_full_name = 'TI, New treatment eligibility';
+            select concept_id into @concept_set_member5_id from concept_view where concept_full_name = 'TI, Has the Treatment with New Drugs Consent Form been explained and signed';
+            select concept_id into @concept_set_member6_id from concept_view where concept_full_name = 'TI, Has the endTB Observational Study Consent Form been explained and signed';
+
+            update concept_set set sort_weight = 5 where concept_id = @concept_set_member5_id and concept_set=@set1_concept_id;
+            update concept_set set sort_weight = 6 where concept_id = @concept_set_member6_id and concept_set=@set1_concept_id;
+
+            call add_concept_set_members (@set1_concept_id,@child2_concept_id,3);
+            call add_concept_set_members (@set1_concept_id,@child3_concept_id,4);
+        </sql>
+    </changeSet>
+
+    <changeSet id="ENDTB-201801232331" author="Sudhamsh">
+    <preConditions onFail="MARK_RAN">
+        <sqlCheck expectedResult="0">
+            select count(*) from concept_description where concept_id = (select concept_id from concept_name where name = 'TI, What is the situation of the patient?' and concept_name_type = 'FULLY_SPECIFIED');
+        </sqlCheck>
+    </preConditions>
+    <comment>Adding two concepts What is the situation of the patient and Additional comments to Treatment Intiation form  </comment>
+    <sql>
+        <![CDATA[select concept_id into @concept_id from concept_view where concept_full_name = 'TI, What is the situation of the patient?';
+        insert into concept_description (concept_id,description,locale,creator,date_created,changed_by,date_changed,uuid)values(@concept_id,'Situation 1: The patient is starting a new regimen that contains new drugs. In this situation, when the patient starts the new regimen, the previous treatment should be closed and the appropriate outcome should be recorded.<br />Situation 2: If an empiric regimen for a duration longer than a month is being changed due to the results of a baseline DST (i.e. the treatment is "adapted" to the baseline DST results), the previous treatment should be closed and the outcome should be recorded as "Treatment adapted". <br /> Situation 3: If the regimen is being changed due to adverse events (e.g. replacement of kanamycin with bedaquiline) but the patient is culture negative and does not fulfill the definition of failure, this is not considered a new treatment, but rather a continuation of the original treatment.', 'en','1', curdate(),null,null,uuid());]]>
+    </sql>
+    </changeSet>
+    <include file ="HepcTreatOutcome.xml"/>
+    <include file ="HepcTreatInitation.xml"/>
+    <include file ="DepressionAlcoholScore.xml"/>
+    <include file ="Liverfibroscan.xml"/>
+    <include file ="Pastinformation.xml"/>
+    <include file ="NewLabResults.xml"/>
+    <changeSet id="ENDTB-201807171208" author="Sudhamsh">
+    <preConditions onFail="MARK_RAN">
+        <sqlCheck expectedResult="1">
+            select count(*) from drug where name = "Tenofovir/fumarate (tdf/ftc) 300mg/200mg";
+        </sqlCheck>
+    </preConditions>
+    <comment> Updating the drug name from Tenofovir/fumarate (tdf/ftc) 300mg/200mg to Tenofovir/Emtricitabine (TDF/FTC) 300/200mg </comment>
+    <sql>
+        update drug set name = "Tenofovir/Emtricitabine (TDF/FTC) 300/200mg" where name = "Tenofovir/fumarate (tdf/ftc) 300mg/200mg";
+        update concept_name set name = "Tenofovir/Emtricitabine (TDF/FTC) 300/200mg" where name = "Tenofovir/fumarate (tdf/ftc) 300mg/200mg" and locale = 'en' and voided = 0;
+    </sql>
+    </changeSet>
+
 </databaseChangeLog>

@@ -37,7 +37,7 @@ public class TreatmentRegimenExtension extends BaseTableExtension<TreatmentRegim
 			for (RegimenRow regimenRow : treatmentRegimen.getRows()) {
 				DateTime currentTreatmentDate = new DateTime(regimenRow.getDate());
 				Days days = Days.daysBetween(new DateTime(startDate), currentTreatmentDate);
-				String month = String.format("%.1f", days.getDays() / 30.0F);
+				String month = String.format("%.1f", days.getDays() / 30.5F);
 				regimenRow.setMonth(month);
 			}
 		} catch (Exception e) {
