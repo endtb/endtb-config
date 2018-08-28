@@ -1,1 +1,1 @@
-call cultureConversionReport('#startDate#' , '#endDate#' )
+call culture_conversion_report;
