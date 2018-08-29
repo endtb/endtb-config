@@ -5,4 +5,4 @@
 #  yum:  name=https://github.com/endtb/bahmni-endtb-batch/releases/download/2.1.0/bahmni-endtb-batch-2.1.0-11.noarch.rpm state=present
 
 - name: Install bahmni-endtb-batch
-  yum:  name=https://github.com/endtb/bahmni-endtb-batch/releases/download/2.2.0/bahmni-endtb-batch-2.2.0-15.noarch.rpm state=present
+  yum:  name=https://github.com/endtb/bahmni-endtb-batch/releases/download/2.3.0/bahmni-endtb-batch-2.3.0-17.noarch.rpm state=present
