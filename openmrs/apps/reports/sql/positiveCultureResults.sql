@@ -217,7 +217,14 @@ SELECT
                 AND voided = 0
                 AND locale = 'en'
                 AND concept_name_type = 'SHORT') AS 'Isolate frozen (Y/N)?',
-    shipment_details.specimen_shipped AS 'Specimen shipped?',
+    (SELECT
+            name
+        FROM
+            concept_name
+        WHERE shipment_details.specimen_shipped = concept_id
+                AND voided = 0
+                AND locale = 'en'
+                AND concept_name_type = 'SHORT') AS 'Specimen shipped?', AS 'Specimen shipped?',
     shipment_details.date_specimen_shipped AS 'Date of shipment',
     shipment_details.shipment_id AS 'Shipment ID',
     shipment_details.shipment_lab AS 'Laboratory specimen shipped to?'
