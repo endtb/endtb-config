@@ -18,6 +18,36 @@ SELECT
                 AND voided = 0
                 AND locale = 'en'
                 AND concept_name_type = 'SHORT') AS 'Culture result',
+	 (SELECT 
+            name
+        FROM
+            concept_name
+        WHERE
+            cons.value_coded = concept_id
+                AND voided = 0
+                AND voided = 0
+                AND locale = 'en'
+                AND concept_name_type = 'SHORT') AS 'Consent obtained for isolate freezing/storing (Y/N)',
+    (SELECT 
+            name
+        FROM
+            concept_name
+        WHERE
+            frozen.value_coded = concept_id
+                AND voided = 0
+                AND locale = 'en'
+                AND concept_name_type = 'SHORT') AS 'Isolate frozen (Y/N)?',
+    (SELECT
+            name
+        FROM
+            concept_name
+        WHERE shipment_details.specimen_shipped = concept_id
+                AND voided = 0
+                AND locale = 'en'
+                AND concept_name_type = 'SHORT') AS 'Specimen shipped?',
+    shipment_details.date_specimen_shipped AS 'Date of shipment',
+    shipment_details.shipment_id AS 'Shipment ID',
+    shipment_details.shipment_lab AS 'Laboratory specimen shipped to?',
     (SELECT 
             LEFT(name, 3)
         FROM
@@ -62,7 +92,7 @@ SELECT
             concept_id = dst_h_0_2.value_coded
                 AND locale = 'en'
                 AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'H 0.2',
+                AND concept_name_type = 'SHORT') AS 'H Low',
     (SELECT 
             LEFT(name, 3)
         FROM
@@ -71,7 +101,7 @@ SELECT
             concept_id = dst_h_1.value_coded
                 AND locale = 'en'
                 AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'H 1',
+                AND concept_name_type = 'SHORT') AS 'H High',
     (SELECT 
             LEFT(name, 3)
         FROM
@@ -134,7 +164,7 @@ SELECT
             concept_id = dst_mfx_0_5.value_coded
                 AND locale = 'en'
                 AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'Mfx 0.5',
+                AND concept_name_type = 'SHORT') AS 'Mfx Low',
     (SELECT 
             LEFT(name, 3)
         FROM
@@ -143,7 +173,7 @@ SELECT
             concept_id = dst_mfx_2.value_coded
                 AND locale = 'en'
                 AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'Mfx 2',
+                AND concept_name_type = 'SHORT') AS 'Mfx High',
     (SELECT 
             LEFT(name, 3)
         FROM
@@ -197,37 +227,7 @@ SELECT
             concept_id = dst_pas.value_coded
                 AND locale = 'en'
                 AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'PAS',
-    (SELECT 
-            name
-        FROM
-            concept_name
-        WHERE
-            cons.value_coded = concept_id
-                AND voided = 0
-                AND voided = 0
-                AND locale = 'en'
-                AND concept_name_type = 'SHORT') AS 'Consent obtained for isolate freezing/storing (Y/N)',
-    (SELECT 
-            name
-        FROM
-            concept_name
-        WHERE
-            frozen.value_coded = concept_id
-                AND voided = 0
-                AND locale = 'en'
-                AND concept_name_type = 'SHORT') AS 'Isolate frozen (Y/N)?',
-    (SELECT
-            name
-        FROM
-            concept_name
-        WHERE shipment_details.specimen_shipped = concept_id
-                AND voided = 0
-                AND locale = 'en'
-                AND concept_name_type = 'SHORT') AS 'Specimen shipped?', AS 'Specimen shipped?',
-    shipment_details.date_specimen_shipped AS 'Date of shipment',
-    shipment_details.shipment_id AS 'Shipment ID',
-    shipment_details.shipment_lab AS 'Laboratory specimen shipped to?'
+                AND concept_name_type = 'SHORT') AS 'PAS'
 FROM
     obs c
         JOIN
@@ -719,4 +719,4 @@ FROM
                 AND voided = 0
                 AND locale = 'en'
                 AND concept_name_type = 'FULLY_SPECIFIED')) shipment_details ON c.obs_group_id = shipment_details.shipment_obs_groupid
-ORDER BY pi.identifier , scd.obs_datetime
+ORDER BY pi.identifier , scd.obs_datetime;
