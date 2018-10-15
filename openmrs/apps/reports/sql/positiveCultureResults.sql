@@ -18,7 +18,7 @@ SELECT
                 AND voided = 0
                 AND locale = 'en'
                 AND concept_name_type = 'SHORT') AS 'Culture result',
-	 (SELECT 
+    (SELECT 
             name
         FROM
             concept_name
@@ -37,197 +37,378 @@ SELECT
                 AND voided = 0
                 AND locale = 'en'
                 AND concept_name_type = 'SHORT') AS 'Isolate frozen (Y/N)?',
-    (SELECT
+    (SELECT 
             name
         FROM
             concept_name
-        WHERE shipment_details.specimen_shipped = concept_id
+        WHERE
+            shipment_details.specimen_shipped = concept_id
                 AND voided = 0
                 AND locale = 'en'
                 AND concept_name_type = 'SHORT') AS 'Specimen shipped?',
     shipment_details.date_specimen_shipped AS 'Date of shipment',
     shipment_details.shipment_id AS 'Shipment ID',
     shipment_details.shipment_lab AS 'Laboratory specimen shipped to?',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_bdq.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'Bdq',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_dlm.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'Dlm',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_cfz.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'Cfz',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_lzd.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'Lzd',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_h_0_2.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'H Low',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_h_1.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'H High',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_r.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'R',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_e.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'E',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_s.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'S',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_z.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'Z',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_ofx.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'Ofx',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_lfx.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'Lfx',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_mfx_0_5.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'Mfx Low',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_mfx_2.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'Mfx High',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_am.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'Am',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_km.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'Km',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_cm.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'Cm',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_eto.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'Eto',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_cs.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'Cs',
-    (SELECT 
-            LEFT(name, 3)
-        FROM
-            concept_name
-        WHERE
-            concept_id = dst_pas.value_coded
-                AND locale = 'en'
-                AND voided = 0
-                AND concept_name_type = 'SHORT') AS 'PAS'
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_bdq.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'Bdq',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_dlm.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'Dlm',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_cfz.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'Cfz',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_lzd.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'Lzd',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_h_0_2.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'H Low',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_h_1.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'H High',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_r.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'R',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_e.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'E',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_s.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'S',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_z.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'Z',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_ofx.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'Ofx',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_lfx.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'Lfx',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_mfx_0_5.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'Mfx Low',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_mfx_2.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'Mfx High',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_am.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'Am',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_km.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'Km',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_cm.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'Cm',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_eto.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'Eto',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_cs.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'Cs',
+    IF(dst_q.value_coded = (SELECT 
+                concept_id
+            FROM
+                concept_name
+            WHERE
+                name = 'True' AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'FULLY_SPECIFIED'),
+        (SELECT 
+                LEFT(name, 3)
+            FROM
+                concept_name
+            WHERE
+                concept_id = dst_pas.value_coded
+                    AND locale = 'en'
+                    AND voided = 0
+                    AND concept_name_type = 'SHORT'),
+        NULL) AS 'PAS'
 FROM
     obs c
         JOIN
@@ -308,11 +489,11 @@ FROM
             name = 'Specimen Id' AND voided = 0
                 AND locale = 'en'
                 AND concept_name_type = 'FULLY_SPECIFIED')
-		JOIN
+        JOIN
     obs ttr ON ttr.voided = 0
         AND ttr.person_id = c.person_id
-		AND DATEDIFF(scd.obs_datetime, ttr.obs_datetime) >= - 60
-		AND ttr.obs_datetime BETWEEN '#startDate#' AND '#endDate#'
+        AND DATEDIFF(scd.obs_datetime, ttr.obs_datetime) >= - 60
+	AND ttr.obs_datetime BETWEEN '#startDate#' AND '#endDate#'
         AND ttr.concept_id = (SELECT 
             concept_id
         FROM
@@ -655,6 +836,19 @@ FROM
                 AND locale = 'en'
                 AND concept_name_type = 'FULLY_SPECIFIED')
         AND dst.encounter_id = dst_eto.encounter_id
+        LEFT JOIN
+    obs dst_q ON dst_q.obs_group_id = dst.obs_id
+        AND dst_q.voided = 0
+        AND dst_q.concept_id = (SELECT 
+            concept_id
+        FROM
+            concept_name
+        WHERE
+            name = 'Are the dst results from the KIT lab(frozen culture dst results)?'
+                AND voided = 0
+                AND locale = 'en'
+                AND concept_name_type = 'FULLY_SPECIFIED')
+        AND dst.encounter_id = dst_q.encounter_id
         LEFT JOIN
     (SELECT 
         sh.person_id,
