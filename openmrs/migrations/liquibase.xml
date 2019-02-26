@@ -2525,6 +2525,7 @@
     <include file ="Liverfibroscan.xml"/>
     <include file ="Pastinformation.xml"/>
     <include file ="NewLabResults.xml"/>
+    <include file ="ExternalCohort.xml"/>
     <changeSet id="ENDTB-201807171208" author="Sudhamsh">
     <preConditions onFail="MARK_RAN">
         <sqlCheck expectedResult="1">
