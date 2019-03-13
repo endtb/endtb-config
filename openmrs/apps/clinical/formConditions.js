@@ -1105,8 +1105,8 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 
     'HTI, Reason that DAA was not given during the study period': function (formName, formFieldValues) {
         var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['HTI, Reason that DAA was not given during the study period'];
-        if (conditionConcept == "Other") {
+        var conditionConcepts = formFieldValues['HTI, Reason that DAA was not given during the study period'];
+        if (conditionConcepts.includes("Other")) {
             conditions.enable.push("HTI, Other reason not to start DAA during study period")
         } else {
             conditions.disable.push("HTI, Other reason not to start DAA during study period")
@@ -1115,8 +1115,8 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
     },
     'HTI, Reason to start DAA at this time (chose all those that apply)': function (formName, formFieldValues) {
         var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['HTI, Reason to start DAA at this time (chose all those that apply)'];
-        if (conditionConcept == "Other") {
+        var conditionConcepts = formFieldValues['HTI, Reason to start DAA at this time (chose all those that apply)'];
+        if (conditionConcepts.includes("Other")) {
             conditions.enable.push("HTI, Other reasons to start DAA")
         } else {
             conditions.disable.push("HTI, Other reasons to start DAA")

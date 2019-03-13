@@ -75,6 +75,14 @@
                 "errorMessage": "Should be 9 characters"
             }
         },
+        "printOptions": [
+
+            {
+                "translationKey": "REGISTRATION_PRINT_STICKER_KEY",
+                "templateUrl": "/bahmni_config/openmrs/apps/registration/registrationCardLayout/print_local.html",
+                "shortcutKey": "t"
+            }
+        ],
         "patientSearch": {
             "programAttributes": {
               "label": "Registration Number",
