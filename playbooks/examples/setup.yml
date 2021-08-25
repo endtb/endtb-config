@@ -1,7 +1,7 @@
 bahmni_repo_url: http://repo.mybahmni.org/releases/ ##https://dl.bintray.com/bahmni/rpm/
 implementation_name: endtb
 timezone: Asia/Almaty
-omods: ["https://github.com/endtb/openmrs-module-bahmniendtb/releases/download/2.3.3/bahmniendtb-2.3.3.omod", "https://dl.bintray.com/openmrs/omod/dataintegrity-4.4.1.omod", "https://bamboo.pih-emr.org:81/endtb/core/bahmnicore-0.89-SNAPSHOT.omod", "https://github.com/Bahmni/bacteriology/releases/download/1.1/bacteriology-1.1.omod"]
+omods: ["https://github.com/endtb/openmrs-module-bahmniendtb/releases/download/2.3.3/bahmniendtb-2.3.3.omod", "https://bamboo.pih-emr.org:81/bahmni-repo/dataintegrity-4.4.1.omod", "https://bamboo.pih-emr.org:81/endtb/core/bahmnicore-0.89-SNAPSHOT.omod", "https://github.com/Bahmni/bacteriology/releases/download/1.1/bacteriology-1.1.omod"]
 
 # Optional fields for endtb
 selinux_state: "permissive"
